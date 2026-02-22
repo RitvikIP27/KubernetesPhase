@@ -34,7 +34,7 @@ Work in progress 🚧
 
 ## 🏗 Kubernetes Architecture – Control Plane & Data Plane
 <p align="center">
-  <img src="kuBEARCH.png" width="800"/>
+  <img src="kUBEARCH.png" width="800"/>
 </p>
 
 
@@ -271,43 +271,18 @@ Please follow the steps carefully and read each command before executing.
 
 kOps uses an S3 bucket to store cluster configuration and state files.
 
-```bash
-aws s3api create-bucket \
-  --bucket kops-abhi-storage \
-  --region us-east-1
-```
+<p align="center">
+  <img src="CreatedKopsS3.png" width="800"/>
+</p>
 
-> ⚠️ If you are creating the bucket outside `us-east-1`, you must specify:
->
-> ```bash
-> --create-bucket-configuration LocationConstraint=<your-region>
-> ```
-
-Example for Mumbai region:
-
-```bash
-aws s3api create-bucket \
-  --bucket kops-abhi-storage \
-  --region ap-south-1 \
-  --create-bucket-configuration LocationConstraint=ap-south-1
-```
 
 ---
 
 ### 🌍 Step 2: Export kOps State Store Environment Variable
 
-To avoid passing `--state` flag every time:
-
-```bash
-export KOPS_STATE_STORE=s3://kops-abhi-storage
-```
-
-To make it permanent:
-
-```bash
-echo 'export KOPS_STATE_STORE=s3://kops-abhi-storage' >> ~/.bashrc
-source ~/.bashrc
-```
+<p align="center">
+  <img src="kopscluster.png" width="800"/>
+</p>
 
 ---
 
@@ -338,22 +313,6 @@ kops create cluster \
 
 ---
 
-### ✏️ Step 4: Edit Cluster Configuration (Optional but Recommended)
-
-Before creating infrastructure:
-
-```bash
-kops edit cluster demok8scluster.k8s.local
-```
-
-You can modify:
-
-- Instance types
-- Networking configuration
-- Kubernetes version
-- Topology (public/private)
-
-Save and exit the editor.
 
 ---
 
@@ -385,10 +344,9 @@ kOps creates:
 
 After a few minutes:
 
-```bash
-kops validate cluster demok8scluster.k8s.local
-```
-
+`<p align="center">
+  <img src="Cluster Started.png" width="800"/>
+</p>
 ---
 
 ## 🧹 Destroy the Cluster (Important to Avoid AWS Charges)
