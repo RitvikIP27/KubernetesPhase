@@ -33,10 +33,10 @@ Work in progress 🚧
 
 
 ## 🏗 Kubernetes Architecture – Control Plane & Data Plane
+<p align="center">
+  <img src="kuBEARCH.png" width="800"/>
+</p>
 
-![Kubernetes Architecture](./architecture.png)
-
-> Replace `architecture.png` with the actual image filename in your repo.
 
 ---
 
